@@ -18,7 +18,7 @@ import {
   Input,
   InputField,
 } from '@gluestack-ui/themed';
-import { Amount, BOACoin } from 'acc-sdk-client-v2';
+import { Amount, BOACoin } from 'kios-sdk-client-v2';
 import {
   greaterFloatTexts,
   convertProperValue,
@@ -668,7 +668,7 @@ const Index = observer(({ navigation }) => {
                       </RobotoMediumText>
                       <RobotoSemiBoldText>
                         {convertProperValue(receiveTokenAmount.toBOAString())}
-                        {'     '} ACC
+                        {'     '} KIOS
                       </RobotoSemiBoldText>
                     </HStack>
                   </VStack>

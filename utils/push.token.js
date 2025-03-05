@@ -1,5 +1,5 @@
 import { Alert, Linking, Platform } from 'react-native';
-import { MobileType } from 'acc-sdk-client-v2';
+import { MobileType } from 'kios-sdk-client-v2';
 import * as Device from 'expo-device';
 import * as Clipboard from 'expo-clipboard';
 import { registerForPushNotificationsAsync } from '../hooks/usePushNotification';

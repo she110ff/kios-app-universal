@@ -12,7 +12,7 @@ import {
 } from '@gluestack-ui/themed';
 import MobileHeader from '../../components/MobileHeader';
 import '@ethersproject/shims';
-import { Amount, NormalSteps } from 'acc-sdk-client-v2';
+import { Amount, NormalSteps } from 'kios-sdk-client-v2';
 import {
   checkValidPeriod,
   convertShopProperValue,

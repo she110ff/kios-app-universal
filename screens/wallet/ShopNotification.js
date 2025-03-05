@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Box, HStack, VStack } from '@gluestack-ui/themed';
 import MobileHeader from '../../components/MobileHeader';
 import '@ethersproject/shims';
-import { NormalSteps } from 'acc-sdk-client-v2';
+import { NormalSteps } from 'kios-sdk-client-v2';
 import { useTranslation } from 'react-i18next';
 import { checkValidPeriod, isEmpty } from '../../utils/convert';
 import { WrapBase2, WrapDivider } from '../../components/styled/layout';

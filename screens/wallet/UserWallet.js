@@ -19,7 +19,7 @@ import {
   InputField,
   Spinner,
 } from '@gluestack-ui/themed';
-import { Amount, BOACoin, NormalSteps } from 'acc-sdk-client-v2';
+import { Amount, BOACoin, NormalSteps } from 'kios-sdk-client-v2';
 import {
   greaterFloatTexts,
   convertProperValue,
@@ -65,7 +65,7 @@ import { isAddress } from '@ethersproject/address';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import Entypo from '@expo/vector-icons/Entypo';
 import PointDistributor from '../../components/PointDistributor';
-import { MobileType } from 'acc-sdk-client-v2';
+import { MobileType } from 'kios-sdk-client-v2';
 import { MCOfferwallSDK } from 'mychips-react-sdk';
 import { debounce } from 'lodash';
 
@@ -625,7 +625,7 @@ const UserWallet = observer(({ navigation }) => {
                               borderRadius={10}>
                               <VStack alignItems='center' space='sm'>
                                 <HeaderText fontSize={21} color='white'>
-                                  Get free ACC points
+                                  Get free KIOS points
                                 </HeaderText>
                                 <HStack
                                   alignItems='center'
@@ -783,7 +783,7 @@ const UserWallet = observer(({ navigation }) => {
                                   {/*  source={require('../../assets/images/mykios.png')}*/}
                                   {/*/>*/}
                                   <AppleSDGothicNeoH color='#5C66D5'>
-                                    My ACC
+                                    My KIOS
                                   </AppleSDGothicNeoH>
                                   <WrapHistoryButton
                                     borderRadius='$full'
@@ -1223,7 +1223,7 @@ const UserWallet = observer(({ navigation }) => {
                             {/*  source={require('../../assets/images/mykios.png')}*/}
                             {/*/>*/}
                             <AppleSDGothicNeoH color='#5C66D5'>
-                              My ACC
+                              My KIOS
                             </AppleSDGothicNeoH>
                             <WrapHistoryButton
                               borderRadius='$full'
@@ -1422,7 +1422,7 @@ const UserWallet = observer(({ navigation }) => {
                                         {convertProperValue(
                                           receiveRefundTokenAmount.toBOAString(),
                                         )}
-                                        {'     '} ACC
+                                        {'     '} KIOS
                                       </RobotoSemiBoldText>
                                     </HStack>
                                   </VStack>
@@ -1507,7 +1507,7 @@ const UserWallet = observer(({ navigation }) => {
                                 {/*  source={require('../../assets/images/mykios.png')}*/}
                                 {/*/>*/}
                                 <AppleSDGothicNeoH color='#5C66D5'>
-                                  My ACC
+                                  My KIOS
                                 </AppleSDGothicNeoH>
                                 <WrapHistoryButton
                                   borderRadius='$full'

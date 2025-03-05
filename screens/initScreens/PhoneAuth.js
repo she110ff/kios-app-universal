@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 import { AUTH_STATE } from '../../stores/user.store';
 import { useStores } from '../../stores';
 import '@ethersproject/shims';
-import { ContractUtils } from 'acc-sdk-client-v2';
+import { ContractUtils } from 'kios-sdk-client-v2';
 import * as Clipboard from 'expo-clipboard';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import {
@@ -226,7 +226,7 @@ const PhoneAuth = observer(({ navigation }) => {
         enableAutomaticScroll={true}>
         <MobileHeader
           title={t('phone.header.title')}
-          subTitle={t('phone.header.subtitle')}
+          subTitle={t('phone.header.subtitle', { appName: t('app.name') })}
         />
 
         <VStack mt={30}>
@@ -319,7 +319,7 @@ const PhoneAuth = observer(({ navigation }) => {
                     color: '#12121D',
                   }}
                   keyboardType='number-pad'
-                  textContentType="oneTimeCode"
+                  textContentType='oneTimeCode'
                   placeholder={t('phone.body.input.b')}
                   onChangeText={formik.handleChange('authCode')}
                   onBlur={formik.handleBlur('authCode')}

@@ -68,11 +68,11 @@ export function checkValidPeriod(timestamp, timeout) {
 
 const names = {
   en: {
-    appName: { kios: 'ACC', pnb: 'PNB', acc: 'ACCcoin' },
-    tokenName: { kios: 'ACC', pnb: 'PNB', acc: 'ACC' },
+    appName: { kios: 'KIOS Point', pnb: 'PNB', acc: 'ACCcoin' },
+    tokenName: { kios: 'KIOS', pnb: 'PNB', acc: 'ACC' },
   },
   other: {
-    appName: { kios: '키오스', pnb: 'PNB', acc: 'ACCcoin' },
+    appName: { kios: '키오스 포인트', pnb: 'PNB', acc: 'ACCcoin' },
     tokenName: { kios: 'KIOS', pnb: 'PNB', acc: 'ACC' },
   },
 };
