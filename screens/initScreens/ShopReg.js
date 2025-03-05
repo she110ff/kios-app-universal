@@ -53,8 +53,8 @@ const ShopReg = observer(({ navigation }) => {
       const shopId = ContractUtils.getShopId(
         secretStore.address,
         secretStore.network === 'testnet'
-          ? LoyaltyNetworkID.ACC_TESTNET
-          : LoyaltyNetworkID.ACC_MAINNET,
+          ? LoyaltyNetworkID.TESTNET
+          : LoyaltyNetworkID.MAINNET,
       );
       userStore.setShopId(shopId);
       userStore.setShopName(formik.values?.n1);
