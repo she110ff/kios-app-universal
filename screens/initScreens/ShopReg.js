@@ -23,7 +23,7 @@ import { observer } from 'mobx-react';
 import { AUTH_STATE } from '../../stores/user.store';
 import { useStores } from '../../stores';
 import '@ethersproject/shims';
-import { ContractUtils, LoyaltyNetworkID } from 'acc-sdk-client-v2';
+import { ContractUtils, LoyaltyNetworkID } from 'kios-sdk-client-v2';
 import * as Clipboard from 'expo-clipboard';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { ChevronDownIcon } from 'lucide-react-native';
@@ -71,7 +71,12 @@ const ShopReg = observer(({ navigation }) => {
         steps.push(step);
         console.log('submit step :', step);
       }
-      await activatePushNotification(t, secretStore, userStore,shopData.shopId);
+      await activatePushNotification(
+        t,
+        secretStore,
+        userStore,
+        shopData.shopId,
+      );
       alert(t('shop.alert.reg.done'));
       userStore.setLoading(false);
     } catch (e) {

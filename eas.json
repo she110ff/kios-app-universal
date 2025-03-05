@@ -1,0 +1,78 @@
+{
+  "build": {
+    "base": {
+      "node": "18.19.0",
+      "env": {
+        "EXPO_PUBLIC_UPDATE_CODE": "1",
+        "EXPO_PUBLIC_TOKEN_NAME": "kios",
+        "EXPO_PUBLIC_CURRENCY": "krw",
+        "EXPO_PUBLIC_APP_KIND": "user",
+        "EXPO_PUBLIC_MYCHIPS_API_KEY": "9d94e2e07726412f8d80dac378ecd04a",
+        "EXPO_PUBLIC_ACC_IOS_MAINNET_ID": "2cc54ab3-6000-4664-8adb-e36acb472f9c",
+        "EXPO_PUBLIC_ACC_IOS_TESTNET_ID": "a87db04a-b086-4df3-8749-30b06865fd97",
+        "EXPO_PUBLIC_ACC_ANDROID_MAINNET_ID": "3aa5011c-0031-45ec-a99d-a66f4bc7da2b",
+        "EXPO_PUBLIC_ACC_ANDROID_TESTNET_ID": "42e6eddc-1b43-4009-bd6c-9c329ae3239c"
+      },
+      "android": {
+        "image": "latest",
+
+        "env": {
+          "PLATFORM": "android"
+        }
+      },
+      "ios": {
+        "image": "latest",
+        "resourceClass": "large",
+        "env": {
+          "PLATFORM": "ios"
+        }
+      },
+      "channel": "base"
+    },
+    "development": {
+      "extends": "base",
+      "channel": "development",
+      "developmentClient": true,
+      "env": {
+        "EXPO_PUBLIC_ENV": "development"
+      },
+      "android": {
+        "distribution": "internal",
+        "withoutCredentials": true
+      },
+      "ios": {
+        "simulator": true
+      }
+    },
+    "preview": {
+      "extends": "base",
+      "channel": "preview",
+      "env": {
+        "EXPO_PUBLIC_ENV": "preview"
+      },
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "extends": "base",
+      "channel": "production",
+      "env": {
+        "EXPO_PUBLIC_ENV": "production"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "youngsoo.jung@bosagora.io",
+        "ascAppId": "6738471038",
+        "appleTeamId": "57MRWA49CL"
+      }
+    }
+  },
+  "cli": {
+    "promptToConfigurePushNotifications": false
+  }
+}

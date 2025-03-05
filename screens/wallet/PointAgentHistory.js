@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 import { Box, FlatList, HStack, Text, VStack } from '@gluestack-ui/themed';
 import MobileHeader from '../../components/MobileHeader';
 import { convertProperValue, timePadding } from '../../utils/convert';
-import { Amount, BOACoin, LedgerAction } from 'acc-sdk-client-v2';
+import { Amount, BOACoin, LedgerAction } from 'kios-sdk-client-v2';
 import { BigNumber } from '@ethersproject/bignumber';
 import { useTranslation } from 'react-i18next';
 import { WrapBox, WrapDivider } from '../../components/styled/layout';
@@ -95,10 +95,10 @@ const PointAgentHistory = observer(({ navigation }) => {
         subTitle={
           historyData && historyData.length > 0
             ? t('wallet.history.header.subtitle.a') +
-            ' ' +
-            historyData.length +
-            ' ' +
-            t('wallet.history.header.subtitle.b')
+              ' ' +
+              historyData.length +
+              ' ' +
+              t('wallet.history.header.subtitle.b')
             : t('wallet.history.header.subtitle.nothing')
         }
       />
@@ -137,14 +137,13 @@ const PointAgentHistory = observer(({ navigation }) => {
                             18,
                           ).toBOAString(),
                           1,
-                        )}
-                        {' '}
+                        )}{' '}
                       </NumberText>
                       <Para3Text
                         pt={4}
                         color='#12121D'
                         style={{ fontWeight: 400 }}>
-                        ACC
+                        KIOS
                       </Para3Text>
 
                       <ParaText fontSize={12} fontWeight={400} lightHeight={20}>

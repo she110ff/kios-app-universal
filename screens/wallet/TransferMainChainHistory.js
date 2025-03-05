@@ -9,7 +9,7 @@ import {
   timePadding,
   truncateMiddleString,
 } from '../../utils/convert';
-import { Amount, BOACoin, LedgerAction } from 'acc-sdk-client-v2';
+import { Amount, BOACoin, LedgerAction } from 'kios-sdk-client-v2';
 import { BigNumber } from '@ethersproject/bignumber';
 import { useTranslation } from 'react-i18next';
 import { WrapBox, WrapDivider } from '../../components/styled/layout';
@@ -148,7 +148,7 @@ const TransferMainChainHistory = observer(({ navigation }) => {
                       pt={4}
                       color='#12121D'
                       style={{ fontWeight: 400 }}>
-                      ACC
+                      KIOS
                     </Para3Text>
                   </HStack>
                 </HStack>

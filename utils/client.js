@@ -1,5 +1,5 @@
 import { getSecureValue } from './secure.store';
-import { LIVE_CONTRACTS, SupportedNetwork } from 'acc-sdk-client-v2';
+import { LIVE_CONTRACTS, SupportedNetwork } from 'kios-sdk-client-v2';
 import '@ethersproject/shims';
 import { Wallet } from '@ethersproject/wallet';
 global.XMLHttpRequest = require('xhr2');
@@ -9,7 +9,7 @@ import {
   Context,
   ContextBuilder,
   ContextParams,
-} from 'acc-sdk-client-v2';
+} from 'kios-sdk-client-v2';
 export async function getClient(screen = 'unknown', network = 'testnet') {
   async function fetchKey() {
     let pKey = await getSecureValue('privateKey');

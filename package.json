@@ -1,6 +1,6 @@
 {
-  "name": "acc-coin-app",
-  "version": "0.7.6",
+  "name": "kios-point-user",
+  "version": "0.8.0",
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
@@ -26,7 +26,6 @@
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.16",
     "@types/google-libphonenumber": "^7.4.30",
-    "acc-sdk-client-v2": "^2.15.2",
     "expo": "^52.0.27",
     "expo-build-properties": "~0.13.2",
     "expo-clipboard": "~7.0.1",
@@ -48,6 +47,7 @@
     "formik": "^2.4.5",
     "google-libphonenumber": "^3.2.34",
     "i18next": "^23.7.16",
+    "kios-sdk-client-v2": "^2.21.0",
     "lodash": "^4.17.21",
     "lucide-react-native": "^0.292.0",
     "mobx": "^6.10.2",

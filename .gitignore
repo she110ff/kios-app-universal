@@ -41,6 +41,6 @@ ios
 android
 
 # eas
-app.json
-eas.json
-google-services.json
+# app.json
+# eas.json
+# google-services.json

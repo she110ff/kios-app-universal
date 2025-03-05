@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 import { Box, FlatList, HStack, Text, VStack } from '@gluestack-ui/themed';
 import MobileHeader from '../../components/MobileHeader';
 import { convertProperValue, timePadding } from '../../utils/convert';
-import { Amount, BOACoin, LedgerAction } from 'acc-sdk-client-v2';
+import { Amount, BOACoin, LedgerAction } from 'kios-sdk-client-v2';
 import { BigNumber } from '@ethersproject/bignumber';
 import { useTranslation } from 'react-i18next';
 import { WrapBox, WrapDivider } from '../../components/styled/layout';
