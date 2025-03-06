@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to Home2bit IT Solutions Inc. (“we”, ”us”, “The Company”). We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you use our application (“App”) and tell you about your privacy rights and how the law protects you.
+Welcome to The9 (“we”, ”us”, “The Company”). We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you use our application (“App”) and tell you about your privacy rights and how the law protects you.
 
 ## The Data We Collect About You
 
@@ -15,7 +15,7 @@ As we do not collect any personal data, this section is not applicable.
 ## How We Use Your Personal Data
 
 As we do not collect any personal data, this section is not applicable.
-However, the company and its partner may use your blockchain address to facilitate the provision of free ACC Points.
+However, the company and its partner may use your blockchain address to facilitate the provision of free KIOS Points.
 
 ## Disclosures of Your Personal Data
 
@@ -37,15 +37,14 @@ Under certain circumstances, you have rights under data protection laws in relat
 
 If you have any questions about this notice or wish to contact the Company regarding your personal data or concerns you have about this notice, write to us at:
 
-**Home2bit IT Solutions Inc.**  
-Taipan Place U1502, Address F. Ortigas Jr. Rd.  
-Ortigas Center, Pasig City, Metro Manila, 1604, Philippines
+**The9**  
+1312, Gasan W Center, 181 Gasan Digital 1-ro, Geumcheon-gu, Seoul, South Korea
 
 ## Changes to This Policy
 
 We will update this policy to reflect changes in our practices and services and take appropriate measures to notify you of any significant changes in accordance with applicable data protection laws. When we post changes to this policy, you will be able to access the updated policy from the app.
 
-The latest update date: January 24, 2025
+The latest update date: March 7 2025
 
 ## Future Updates Plan
 
