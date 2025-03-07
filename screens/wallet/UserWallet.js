@@ -606,46 +606,51 @@ const UserWallet = observer(({ navigation }) => {
                               appName: t('app.name'),
                             })}
                           </SubHeaderText>
-                          <Box
-                            mt={20}
-                            mb={10}
-                            style={{
-                              width: '100%',
-                            }}>
-                            <Button
-                              onPress={() => secretStore.setShowMAFSheet(true)}
-                              bg='transparent'
-                              w='100%'
-                              h={130}
-                              py={10}
-                              justifyContent='center'
-                              alignItems='center'
-                              borderWidth={1}
-                              borderColor='#E4E4E4'
-                              borderRadius={10}>
-                              <VStack alignItems='center' space='sm'>
-                                <HeaderText fontSize={21} color='white'>
-                                  Get free KIOS points
-                                </HeaderText>
-                                <HStack
-                                  alignItems='center'
-                                  space='lg'
-                                  backgroundColor='#5C66D5'
-                                  rounded='$lg'
-                                  px={20}
-                                  py={10}>
-                                  <ParaText color='white' fontSize={15}>
-                                    Get points now
-                                  </ParaText>
-                                  <Entypo
-                                    name='arrow-right'
-                                    size={20}
-                                    color='white'
-                                  />
-                                </HStack>
-                              </VStack>
-                            </Button>
-                          </Box>
+                          {secretStore.network === 'testnet' && (
+                            <Box
+                              mt={20}
+                              mb={10}
+                              style={{
+                                width: '100%',
+                              }}>
+                              <Button
+                                onPress={() =>
+                                  secretStore.setShowMAFSheet(true)
+                                }
+                                bg='transparent'
+                                w='100%'
+                                h={130}
+                                py={10}
+                                justifyContent='center'
+                                alignItems='center'
+                                borderWidth={1}
+                                borderColor='#E4E4E4'
+                                borderRadius={10}>
+                                <VStack alignItems='center' space='sm'>
+                                  <HeaderText fontSize={21} color='white'>
+                                    Get free KIOS points
+                                  </HeaderText>
+                                  <HStack
+                                    alignItems='center'
+                                    space='lg'
+                                    backgroundColor='#5C66D5'
+                                    rounded='$lg'
+                                    px={20}
+                                    py={10}>
+                                    <ParaText color='white' fontSize={15}>
+                                      Get points now
+                                    </ParaText>
+                                    <Entypo
+                                      name='arrow-right'
+                                      size={20}
+                                      color='white'
+                                    />
+                                  </HStack>
+                                </VStack>
+                              </Button>
+                            </Box>
+                          )}
+
                           <Box mt={10} w='$full'>
                             <Box>
                               <Box bg='white' rounded='$xl'>
@@ -840,7 +845,7 @@ const UserWallet = observer(({ navigation }) => {
                                       (1 {tokenSymbol} ≒{' '}
                                       {convertProperValue(
                                         oneTokenRate.toBOAString(),
-                                        1,
+                                        0,
                                         5,
                                       )}{' '}
                                       {currency.toUpperCase()})
