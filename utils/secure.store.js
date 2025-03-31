@@ -25,15 +25,17 @@ export async function saveSecure(key, secretStore, invalid) {
     wallet = new Wallet(key);
   } catch (e) {
     console.log('Invalid private key.');
-    alert(invalid);
-    return;
+    // alert(invalid);
+    return false;
   }
   try {
     secretStore.setAddress(wallet.address);
     await saveSecureValue('address', wallet.address);
     await saveSecureValue('privateKey', key);
     await secretStore.setClient();
+    return true;
   } catch (e) {
     alert('saveSecure :' + JSON.stringify(e.message));
+    return false;
   }
 }

@@ -90,23 +90,38 @@ const WalletManager = observer(({ navigation }) => {
   }
 
   async function saveKey(key) {
-    await saveSecure(key, secretStore, t('secret.alert.wallet.invalid'));
-    await activatePushNotification(t, secretStore, userStore);
-    // let ret = false;
-    try {
+    console.log('wallet manager > saveKey > key :', key);
+    const ret = await saveSecure(
+      key,
+      secretStore,
+      t('secret.alert.wallet.invalid'),
+    );
+    userStore.setLoading(false);
+
+    if (!ret) {
+      alert(t('secret.alert.wallet.invalid'));
+    } else {
+      await activatePushNotification(t, secretStore, userStore);
+      setFromOtherWallet(true);
       alert(t('config.wallet.alert.import.done'));
       navigation.navigate('Wallet');
-    } catch (e) {
-      alert(t('config.wallet.alert.import.fail'));
     }
-    userStore.setLoading(false);
-    setFromOtherWallet(true);
   }
+
   async function saveKeyForShop(key) {
-    await saveSecure(key, secretStore, t('secret.alert.wallet.invalid'));
+    const ret = await saveSecure(
+      key,
+      secretStore,
+      t('secret.alert.wallet.invalid'),
+    );
     console.log('saveKeyForShop');
-    userStore.setLoading(false);
-    setFromOtherWallet(true);
+
+    if (!ret) {
+      alert(t('secret.alert.wallet.invalid'));
+    } else {
+      userStore.setLoading(false);
+      setFromOtherWallet(true);
+    }
   }
 
   async function afterSelectingShop(selectedShopId) {

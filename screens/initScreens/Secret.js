@@ -72,16 +72,32 @@ const Secret = observer(({ navigation }) => {
   }
 
   async function saveKey(key) {
-    await saveSecure(key, secretStore, t('secret.alert.wallet.invalid'));
-    await activatePushNotification(t, secretStore, userStore);
-    resetPinCode();
+    console.log('===== saveKey > key :', key);
+    const ret = await saveSecure(
+      key,
+      secretStore,
+      t('secret.alert.wallet.invalid'),
+    );
+    if (!ret) {
+      alert(t('secret.alert.wallet.invalid'));
+    } else {
+      await activatePushNotification(t, secretStore, userStore);
+      resetPinCode();
+    }
   }
 
   async function saveKeyForShop(key) {
-    await saveSecure(key, secretStore, t('secret.alert.wallet.invalid'));
-
+    const ret = await saveSecure(
+      key,
+      secretStore,
+      t('secret.alert.wallet.invalid'),
+    );
+    if (!ret) {
+      alert(t('secret.alert.wallet.invalid'));
+    } else {
+      setFromOtherWallet(true);
+    }
     userStore.setLoading(false);
-    setFromOtherWallet(true);
   }
 
   async function afterSelectingShop(selectedShopId) {
