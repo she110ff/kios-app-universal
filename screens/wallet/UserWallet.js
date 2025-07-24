@@ -81,8 +81,14 @@ const UserWallet = observer(({ navigation }) => {
   const [userTokenMainnetBalance, setUserTokenMainnetBalance] = useState(
     new BOACoin(0),
   );
+  const [userToken2MainnetBalance, setUserToken2MainnetBalance] = useState(
+    new BOACoin(0),
+  );
   const [userTokenRate, setUserTokenRate] = useState(new BOACoin(0));
   const [userTokenMainnetRate, setUserTokenMainnetRate] = useState(
+    new BOACoin(0),
+  );
+  const [userToken2MainnetRate, setUserToken2MainnetRate] = useState(
     new BOACoin(0),
   );
   const [oneTokenRate, setOneTokenRate] = useState(new BOACoin(0));
@@ -215,11 +221,16 @@ const UserWallet = observer(({ navigation }) => {
   async function setWalletData(data) {
     // alert('setWalletData >>');
     try {
+      // if (!secretStore.client?.ledger) {
+      //   console.log('ledger 클라이언트가 없습니다');
+      //   return;
+      // }
       const summary =
         data && !isEmptyObject(data)
           ? data
           : await secretStore.client.ledger.getSummary(secretStore.address);
 
+      // console.log('summary :', JSON.stringify(summary, null, 2));
       setTokenName(summary.tokenInfo.name);
       setTokenSymbol(summary.tokenInfo.symbol);
       setCurrency(summary.exchangeRate.currency.symbol);
@@ -234,6 +245,11 @@ const UserWallet = observer(({ navigation }) => {
 
       const tokenMainnetBalConv = new BOACoin(summary.mainChain.token.balance);
       setUserTokenMainnetBalance(tokenMainnetBalConv);
+
+      const token2MainnetBalConv = new BOACoin(
+        summary.mainChain.token2.balance,
+      );
+      setUserToken2MainnetBalance(token2MainnetBalConv);
 
       const userTokenCurrencyConv = new BOACoin(summary.ledger.token.value);
       setUserTokenRate(userTokenCurrencyConv);
@@ -251,6 +267,17 @@ const UserWallet = observer(({ navigation }) => {
 
       const onePointConv = new BOACoin(summary.exchangeRate.currency.value);
       setOnePointRate(onePointConv);
+
+      const token2CurrentRate = new BOACoin(
+        token2MainnetBalConv.value.mul(
+          BigNumber.from(
+            new BOACoin(summary.exchangeRate.currency.value).convert(0).value,
+          ),
+        ),
+      );
+
+      console.log('token2CurrentRate :', token2CurrentRate.toBOAString());
+      setUserToken2MainnetRate(token2CurrentRate);
 
       setInit(true);
     } catch (e) {
@@ -297,6 +324,11 @@ const UserWallet = observer(({ navigation }) => {
       const tokenMainnetBalConv = new BOACoin(summary.mainChain.token.balance);
       setUserTokenMainnetBalance(tokenMainnetBalConv);
 
+      const token2MainnetBalConv = new BOACoin(
+        summary.mainChain.token2.balance,
+      );
+      setUserToken2MainnetBalance(token2MainnetBalConv);
+
       const userTokenCurrencyConv = new BOACoin(summary.ledger.token.value);
       setUserTokenRate(userTokenCurrencyConv);
 
@@ -307,6 +339,17 @@ const UserWallet = observer(({ navigation }) => {
 
       const oneTokenConv = new BOACoin(summary.exchangeRate.currency.value);
       setOneTokenRate(oneTokenConv);
+
+      const token2CurrentRate = new BOACoin(
+        token2MainnetBalConv.value.mul(
+          BigNumber.from(
+            new BOACoin(summary.exchangeRate.currency.value).convert(0).value,
+          ),
+        ),
+      );
+
+      console.log('token2CurrentRate :', token2CurrentRate.toBOAString());
+      setUserToken2MainnetRate(token2CurrentRate);
     } catch (e) {
       console.log('setShopData > ', e);
     }
@@ -647,7 +690,7 @@ const UserWallet = observer(({ navigation }) => {
                               </VStack>
                             </Button>
                           </Box>
-                          // )}
+
                           <Box mt={10} w='$full'>
                             <Box>
                               <Box bg='white' rounded='$xl'>
@@ -1598,6 +1641,128 @@ const UserWallet = observer(({ navigation }) => {
                             </Box>
                           </Box>
                         </Box>
+
+                        <Box mt={10} w='$full'>
+                          <Box>
+                            <Box px={20} pb={20} bg='white' rounded='$xl'>
+                              <HStack
+                                mt={20}
+                                mx={10}
+                                alignItems='center'
+                                justifyContent='space-between'>
+                                <AppleSDGothicNeoH color='#5C66D5'>
+                                  My SKIOS
+                                </AppleSDGothicNeoH>
+                                {/* <WrapHistoryButton
+                                  borderRadius='$full'
+                                  h={24}
+                                  pt={-2}
+                                  onPress={() =>
+                                    navigation.navigate(
+                                      'TransferMainChainHistory',
+                                    )
+                                  }>
+                                  <Para2Text
+                                    style={{ fontSize: 12, color: '#707070' }}>
+                                    {t('user.wallet.link.transfer.history')}
+                                  </Para2Text>
+                                </WrapHistoryButton> */}
+                              </HStack>
+
+                              <>
+                                <HStack justifyContent='center' pt={50}>
+                                  <AppleSDGothicNeoSBText
+                                    pt={10}
+                                    fontSize={40}
+                                    lineHeight={48}
+                                    fontWeight={400}>
+                                    {convertProperValue(
+                                      userToken2MainnetBalance.toBOAString(),
+                                    )}
+                                  </AppleSDGothicNeoSBText>
+                                </HStack>
+                                <VStack alignItems='center' pt={10}>
+                                  <AppleSDGothicNeoSBText
+                                    color='#555555'
+                                    fontSize={16}
+                                    lineHeight={22}
+                                    fontWeight={400}>
+                                    ≒{' '}
+                                    {convertProperValue(
+                                      userToken2MainnetRate.toBOAString(),
+                                      userStore.currency.toLowerCase() ===
+                                        process.env.EXPO_PUBLIC_CURRENCY
+                                        ? 0
+                                        : 1,
+                                      userStore.currency.toLowerCase() ===
+                                        process.env.EXPO_PUBLIC_CURRENCY
+                                        ? 0
+                                        : 2,
+                                    )}{' '}
+                                    {currency.toUpperCase()}
+                                  </AppleSDGothicNeoSBText>
+                                  <AppleSDGothicNeoSBText
+                                    color='#555555'
+                                    fontSize={16}
+                                    lineHeight={22}
+                                    fontWeight={400}>
+                                    (1 SKIOS ≒{' '}
+                                    {convertProperValue(
+                                      oneTokenRate.toBOAString(),
+                                      0,
+                                      5,
+                                    )}{' '}
+                                    {currency.toUpperCase()})
+                                  </AppleSDGothicNeoSBText>
+                                </VStack>
+                              </>
+
+                              <Box mt='$6'>
+                                <WrapButton
+                                  bg='#D4D4D4'
+                                  disabled={true}
+                                  borderColor='#8A8A8A'
+                                  borderRadius='$lg'
+                                  borderWidth='$1'
+                                  onPress={() => {
+                                    goToTransfer('mainChainTransfer');
+                                  }}>
+                                  <RobotoMediumText
+                                    style={{
+                                      fontWeight: 500,
+                                      lineHeight: 16,
+                                      fontSize: 15,
+                                      color: '#fff',
+                                    }}>
+                                    {t('exchange.to.skios')}
+                                  </RobotoMediumText>
+                                </WrapButton>
+                              </Box>
+                            </Box>
+                          </Box>
+                        </Box>
+
+                        {/* <Box mt='$2' w='$full'>
+                          <WrapButton
+                            bg='#D4D4D4'
+                            disabled={true}
+                            borderColor='#8A8A8A'
+                            borderRadius='$lg'
+                            borderWidth='$1'
+                            onPress={() => {
+                              goToTransfer('mainChainTransfer');
+                            }}>
+                            <RobotoMediumText
+                              style={{
+                                fontWeight: 500,
+                                lineHeight: 16,
+                                fontSize: 15,
+                                color: '#000',
+                              }}>
+                              {t('exchange.to.skios')}
+                            </RobotoMediumText>
+                          </WrapButton>
+                        </Box> */}
                       </VStack>
                     </ScrollView>
                   </Box>

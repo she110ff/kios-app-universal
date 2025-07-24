@@ -47,7 +47,7 @@
     "formik": "^2.4.5",
     "google-libphonenumber": "^3.2.34",
     "i18next": "^23.7.16",
-    "kios-sdk-client-v2": "^2.21.0",
+    "kios-sdk-client-v2": "^2.22.0",
     "lodash": "^4.17.21",
     "lucide-react-native": "^0.292.0",
     "mobx": "^6.10.2",
